@@ -1,0 +1,9 @@
+-r base.txt
+
+black
+tox
+isort
+coverage
+flake8
+ipython
+django-debug-toolbar
