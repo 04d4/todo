@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    container_name: postgres
+    image: postgres:14.15-alpine3.21
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-pass123}
+      - POSTGRES_DB=${POSTGRES_DB:-todo}
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - todo
+    restart: unless-stopped
+networks:
+  todo:
+volumes:
+  db:
